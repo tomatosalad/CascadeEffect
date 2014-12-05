@@ -17,15 +17,16 @@ void tankdrive() {
 
 void winchcontrol() {
 	motor[winch] = (joystick.joy2_y2 / 1.28);
-	//put autolift code here
+	//add fine tuning, needs logic
+	nxtDisplayTextLine(1,"winch: %d", nMotorEncoder[winch]);
 }
 
 void armcontrol() {
-	if(joystick.joy2_TopHat == 2) {
-		motor[arm] = 100;
+	if(joystick.joy2_TopHat == 6) {
+		motor[arm] = 50;
 	}
-	else if(joystick.joy2_TopHat == 6) {
-		motor[arm] = -100;
+	else if(joystick.joy2_TopHat == 2) {
+		motor[arm] = -50;
 	}
 	else {
 		motor[arm] = 0;
